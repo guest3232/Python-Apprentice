@@ -88,7 +88,7 @@ def say_hello():
     tina.penup()
     tina.goto(75, head_pos()+75)         # Move tina to the position for the text
     tina.pendown()
-    tina.write("Hello! I'm Tina!", font=("Arial", 20, "normal"))  # Write the text
+    tina.write("Hello!", font=("Arial", 20, "normal"))  # Write the text
 
 draw_head() 
 
