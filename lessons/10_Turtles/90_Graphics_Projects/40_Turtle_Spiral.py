@@ -13,7 +13,6 @@ import turtle
 def getRandomColor():
     return "#%06X" % (random.randint(0, 0xFFFFFF))
 
-
 window = turtle.Screen()
 window.bgcolor("white")
 
@@ -30,19 +29,20 @@ myTurtle.speed(0)
 myTurtle.color("green")
 
 # Use a loop to repeat the code below 50 times
+
 for i in range(50):
 
     # Set the turtle color to a random color
     myTurtle.pencolor(getRandomColor())
 
     # Move the turtle (5*i) pixels. 'i' is the loop variable
-    myTurtle.forward(9 * i)
+    myTurtle.forward(5 * i)
 
     # Turn the turtle (360/7) degrees to the right
-    myTurtle.right(360 / 7 + i*5)
+    myTurtle.right(360 / 9 + i*5)
 
     # Change the turtle width to 'i' (the loop variable)
-    myTurtle.width(i)
+    myTurtle.width(i * i/25)
 
     # Check the pattern against the picture in the recipe. If it matches, you are done!
 

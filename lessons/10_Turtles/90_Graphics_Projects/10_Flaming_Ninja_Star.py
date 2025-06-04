@@ -14,7 +14,8 @@ def getRandomColor():
 
 
 colors = ["red", "blue", "green", "yellow", "orange"]
-
+redfirecolors = ["red", "orange", "yellow", "grey", "gray", "black"]
+bluefirecolors = ["blue", "purple", "magenta", "pink", "gray", "black"]
 
 def getNextColor(i):
     return colors[i % len(colors)]
@@ -42,7 +43,7 @@ for i in range(25):
 
     t.forward(64) 
 
-    t.left(40) 
+    t.left(70) 
 
     t.forward(flameSize) 
 
@@ -50,7 +51,7 @@ for i in range(25):
 
     t.forward(flameSize) 
 
-    t.right(62) 
+    t.right(72) 
 
     t.forward(baseSize) 
 

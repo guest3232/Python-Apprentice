@@ -17,7 +17,7 @@ window = turtle.Screen()
 window.bgcolor("black")
 window.setup(width=600, height=600, startx=0, starty=0)
 
-colors = ("red", "blue", "green", "yellow", "orange")
+colors = ("red", "blue", "green", "yellow", "orange", "purple", "pink", "white", "gray")
 
 myTurtle = turtle.Turtle()
 myTurtle.shape("turtle")
@@ -34,7 +34,7 @@ for i in range(360):
         myTurtle.width(3)
     myTurtle.pencolor(getNextColor(i))
     myTurtle.forward(i)
-    myTurtle.right(angle + 1)
+    myTurtle.right(angle + 0.1)
 
 myTurtle.hideturtle()
 
