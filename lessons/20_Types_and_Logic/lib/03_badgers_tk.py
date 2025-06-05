@@ -7,7 +7,6 @@
 
 """
 
-
 import  jtl_lib  # type: ignore
 jtl_lib.add_path()
 from lib.badgers import FizzBuzzer
@@ -27,7 +26,12 @@ from lib.badgers import FizzBuzzer
 def fizzbuzz(number):
     
     # Put your fizzbuz code here. 
-    
+    for integer in range(100):
+        if integer % 5 == 0:
+            print(str(integer) + ': fizz')
+        elif integer % 3 == 0:
+            print(str(integer) + ': buzz')
+
     return 'mushroom' # Always show a snake
 
 
