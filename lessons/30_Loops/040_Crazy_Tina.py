@@ -3,12 +3,12 @@
 Create a program that will draw a crazy pattern using the turtle.
 
 Create lists for the path that Tina will take, the angles 
-she will turn, and the colors she will use. The access those
+she will turn, and the colors she will use. Then, access those
 lists to draw the pattern.
 
-hint: all of your lists should have the same number of elements.
-Review the ' Using Lists' section of the previous lesson if you need 
-more help
+Hint: all of your lists should have the same number of elements.
+Review the 'Using Lists' section of the previous lessons if you need 
+more help.
 
 """
 
@@ -22,20 +22,19 @@ tina.shape('turtle')                    # Set the shape of the turtle to a turtl
 tina.speed(2)                           # Make the turtle move as fast, but not too fast. 
 
 
-forwards = [ ... ]
-lefts = [ ... ]
-colors = [  ... ]
+forwards = range(80, 160, 10)
+lefts = range(30, 360, 45)
+colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink', 'brown']
 
-for  i in range(8):
+for i in range(8):
 
-    forward = ...
-    left = ...
-    color = ...
-
+    forward = forwards[i]
+    left = lefts[i]
+    color = colors[i]
+ 
 
     tina.color(color)
     tina.forward(forward)
     tina.left(left)
 
-turtle.exitonclick()  
-
+turtle.exitonclick()

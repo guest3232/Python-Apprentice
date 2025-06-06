@@ -6,11 +6,11 @@
 
 
 """
-
+"""
 import  jtl_lib  # type: ignore
 jtl_lib.add_path()
 from lib.badgers import FizzBuzzer
-
+"""
 # Make fizzbuzz function work with graphics
 # Inside the fizzbuzz function:
 #   return 'snake' to display the snake image, 
@@ -34,6 +34,5 @@ def fizzbuzz(number):
 
     return 'mushroom' # Always show a snake
 
-
-fb = FizzBuzzer(fizzbuzz)
-fb.run()
+#fb = FizzBuzzer(fizzbuzz)
+#fb.run()

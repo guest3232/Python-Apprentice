@@ -39,10 +39,9 @@ screen = turtle.Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor('white')
 """
-colorsreverse = [ 'orange', 'black', 'blue', 'red']
 bug.speed(2)
 bug.pendown()
-for color in colorsreverse:
+for color in colors[::-1]:
     bug.pencolor(color)
     bug.forward(movement)
     bug.left(turning)
