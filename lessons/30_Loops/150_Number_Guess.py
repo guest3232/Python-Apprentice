@@ -11,12 +11,11 @@ number, tell the user the guess is correct and stop the game. If the user does
 not guess the number, allow the user to keep guessing until the user gets the
 right answer.
 
-
 Write the main part of your program as a loop. If the user guesses the number,
 break out of the loop. If the user does not guess the number, continue the loop.
 
-If the user guesses a number that is divisible by 7, tell the user "that is a
-very bad number, starting over " and pick another number and continue picking
+If the user guesses a number that is divisible by 7, tell the user, "That is a
+very bad number, starting over." Then, pick another number and continue picking
 new numbers until the number is not divisible by 7.
 
 Get a random number:
@@ -39,18 +38,34 @@ def ask_integer(prompt):
             return int(input(prompt))
         except ValueError:
             print("Please enter a valid number!")
-
-
+n = 7
 # Pick the random number
+def getrandnumber(n): #Get a random number
+    print('#Get Random Number: Started')
+    n = random.randint(1, 100)
+    print('#n = ' + str(n))
+    checkrandnumber(n)
 
+def checkrandnumber(n): #Check whether or not the random number is valid
+    if n % 7 == 0:
+        print('#Invalid number recieved; retrying.')
+        getrandnumber(n)
+    else:
+        print('#Valid number recieved.')
 # In your loop:
-
-    # Get the user's guess
-
-    # If the user's guess is divisible by 7, tell the user to start over
-
-    # If the user's guess is too high, tell the user
-    # If the user's guess is too low, tell the user
-    # If the user's guess is correct, tell the user and break out of the loop
-
-
+getrandnumber(n)
+guess = ask_integer("Guess a number between 1 and 100: ")
+            # Get the user's guess
+            # If the user's guess is divisible by 7, tell the user to start over
+if guess % 7 == 0:
+    print('That is a forbidden number. Starting over.')
+    getrandnumber(n)
+            # If the user's guess is too high, tell the user
+elif guess > n:
+    print('This guess is too high.')
+            # If the user's guess is too low, tell the user
+elif guess < n:
+    print('This guess is too low.')
+            # If the user's guess is correct, tell the user and break out of the loop
+elif guess == n:
+    print('This guess is CORRECT. You may now exit.')

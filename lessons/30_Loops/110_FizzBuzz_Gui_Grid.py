@@ -9,7 +9,7 @@ color of the number based on the following rules:
 * If the number is evenly divisible by 15, print '🐍'
 * If it is divisible by neither, print the number.
 
-Additionally, If you are displaying a number  color the numbers as follows:
+Additionally, If you are displaying a number, color the numbers as follows:
 
 * If the sum of the digits of the number is even, color the number blue
 * If the sum of the digits of the number is odd, color the number red
@@ -33,12 +33,31 @@ app = App("Numbers Grid", layout="grid")
 
 # Create a 10x10 grid using nested loops
 # Or you can use a single loop and calculate the row and column
-
+for i in range(10):
+    for j in range(10):
+        custom = 1+10*i+j
+        if custom % 2 == 0:
+            color = 'Blue'
+        else:
+            color = 'Red'
+        if custom % 15 == 0:
+            symbol = 'Snake 🐍'
+        elif custom % 3 == 0:
+            symbol = 'Mushroom 🍄'
+        elif custom % 5 == 0:
+            symbol = 'Badger 🦡'
+        else:
+            symbol = ''
+        print(str(color) + ' ' + str(custom) + ' ' + str(symbol), end = ' ')
+        Text(app, text=str(custom) + ' ' + str(symbol), grid=[j, i], color=color)
+    print()
+        
 # In the loop, calculate or increment the number
 
 # Use % determing the display, using fizzbuzz rules
 
 # If you are displaying a number, calculate the sum of the digits and determine the color
+#Text(app, text=str(custom), grid=[i, j], color=color)
 
 # Call Text(app, text='...', grid=[col, row], color=...) to display something. 
 
