@@ -43,29 +43,40 @@ n = 7
 def getrandnumber(n): #Get a random number
     print('#Get Random Number: Started')
     n = random.randint(1, 100)
-    print('#n = ' + str(n))
-    checkrandnumber(n)
+#    print('#n = ' + str(n))
+    n=checkrandnumber(n)
+    return(n)
 
 def checkrandnumber(n): #Check whether or not the random number is valid
     if n % 7 == 0:
         print('#Invalid number recieved; retrying.')
-        getrandnumber(n)
+        n=getrandnumber(n)
     else:
         print('#Valid number recieved.')
+    return(n)
 # In your loop:
-getrandnumber(n)
-guess = ask_integer("Guess a number between 1 and 100: ")
-            # Get the user's guess
-            # If the user's guess is divisible by 7, tell the user to start over
-if guess % 7 == 0:
-    print('That is a forbidden number. Starting over.')
-    getrandnumber(n)
-            # If the user's guess is too high, tell the user
-elif guess > n:
-    print('This guess is too high.')
-            # If the user's guess is too low, tell the user
-elif guess < n:
-    print('This guess is too low.')
-            # If the user's guess is correct, tell the user and break out of the loop
-elif guess == n:
-    print('This guess is CORRECT. You may now exit.')
+guess = 0
+n=getrandnumber(n)
+while guess != n:
+    guess = ask_integer("Guess a number between 1 and 100: ")
+    # Get the user's guess
+    # If the user's guess is divisible by 7, tell the user to start over
+    if guess % 7 == 0:
+        print('That is a forbidden number. Restarting.')
+        print(n)
+        n=getrandnumber(n)
+                # If the user's guess is too high, tell the user
+    elif guess > n:
+        print('This guess is too high.')
+#        print(n)
+        continue
+                # If the user's guess is too low, tell the user
+    elif guess < n:
+        print('This guess is too low.')
+#        print(n)
+        continue
+                # If the user's guess is correct, tell the user and break out of the loop
+    elif guess == n:
+        print('This guess is CORRECT. You may now exit.')
+#        print(n)
+        break
