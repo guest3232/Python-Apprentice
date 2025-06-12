@@ -1,14 +1,14 @@
 from guizero import App, Box, Text, TextBox, PushButton, ListBox, error
 
-"""Funny Words Dictionary
+"""Formal Words Dictionary
 
 This program provides a graphical user interface (GUI) for managing a dictionary
-of funny words and their definitions. Users can add new definitions, delete
+of formal words and their definitions. Users can add new definitions, delete
 existing definitions, and view the list of definitions in a listbox. 
 
 The module uses the guizero library to create the GUI components and handle user
 interactions.  It defines several functions for adding and deleting definitions,
-as well as checking if a definition is funny. The definitions are stored in a
+as well as checking if a definition is formal or informal. The definitions are stored in a
 global dictionary called 'db'. To use the application, run the script and a
 window will appear with input fields for entering a word and its definition.
 Clicking the 'Add' button will add the definition to the dictionary and update
@@ -38,11 +38,17 @@ def add_definition(db, key, value):
 
     If there are already 5 items in the database, an error message is displayed and the new item is not added.
     """
+    print(len(db))
 
     # Check the limit
+    if len(db) <=5:
+        print('q')
+        db[key]=value
 
+    else:
+        error("Input Error", 'No more than 6 in the definitions box at a time. New ones will be deleted.')
     # Set the item in the database
-
+    
     pass
 
 
@@ -53,17 +59,19 @@ def delete_definition(db, key):
     Args:
         db (dict): The database containing the key-value pairs.
         key: The key to be deleted from the database.
-
+    
     Returns:
         None
     """
-
+    if db>5:
+        print('Remove key triggered')
+        db[key].remove()
     # Delete the item from db if it is present
 
     pass
 
 
-def is_funny(definition):
+#def is_funny(definition):
     """
     Check if the definition is funny, which means it contains one of the words:
 
@@ -78,7 +86,7 @@ def is_funny(definition):
     
     # Return True if the definition contains any of the funny words, False otherwise
 
-    return False
+#    return False
 
 def update_listbox(db):
     """
@@ -87,19 +95,22 @@ def update_listbox(db):
     Returns:
         list of str: A list of strings containing the definitions to be displayed in the listbox.
     """
-
+    print('db.append()')
     # This function will return a list of definitions to be displayed in the listbox, like
     # the one below. (For your function, you should set this list to the empty list)
-    l = [
-        "Item 1: Fake Definition 1",
-        "Item 2: Fake Definition 2",
-        "Item 3: fake Definition 3"
-    ]
+#    l = [
+#        "Item 1: Fake Definition 1",
+#        "Item 2: Fake Definition 2",
+#        "Item 3: Fake Definition 3"
+#    ]
+    l = list()
 
     # Add each definition to a string
     # iterate over the dict's key-value pairs and turn them into
     # strings, then add the strings to the list with .append()
-
+    m=list()
+    for key, value in db.items():
+        l.append(key + ': ' + value)
     return l
 
 ################################################################
@@ -112,8 +123,9 @@ def _add_definition():
     
 
     if word and definition:
-        if is_funny(definition):
-            definition = "😂 " + definition + " 🤡"
+        #if is_funny(definition):
+            #definition = "😂 " + definition + " 🤡 # What is this"
+            #pass
         add_definition(db, word, definition)
         _update_listbox(db)
         word_entry.clear()
